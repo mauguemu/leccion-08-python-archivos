@@ -56,7 +56,7 @@ $ conda deactivate
 conda activate gdal
 
 # Descarga de la capa de áreas protegidas desde el servicio WFS de Sirefor en el SNIT
-ogr2ogr -t_srs EPSG:4326 -f "GeoJSON" areas_conservacion.geojson WFS:"http://geos1pne.sirefor.go.cr/wfs?" "PNE:areas_conservacion"
+ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 areas_conservacion.geojson WFS:"http://geos1pne.sirefor.go.cr/wfs?" "PNE:areas_conservacion"
 
 # Desactivación del ambiente
 $ conda deactivate
