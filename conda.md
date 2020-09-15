@@ -3,7 +3,7 @@
 ## Recursos de interés
 - Sitio oficial de Conda: [Conda -- Conda documentation](https://conda.io/)
 - Comandos para manejo de ambientes en Conda: [Managing environments -- conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-- Tutorial sobre ambientes virtuales de Python en Conda: [(Tutorial) Virtual Environment in Python - DataCamp](https://www.datacamp.com/community/tutorials/virtual-environment-in-python)
+- Tutorial sobre ambientes virtuales de Python: [(Tutorial) Virtual Environment in Python - DataCamp](https://www.datacamp.com/community/tutorials/virtual-environment-in-python)
 - Comparación entre Conda y Pip: [Understanding Conda and Pip](https://www.anaconda.com/blog/understanding-conda-and-pip)
 
 ## Sistemas administradores de de paquetes
