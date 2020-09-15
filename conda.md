@@ -16,11 +16,14 @@ Un [sistema de administración de paquetes](https://en.wikipedia.org/wiki/Packag
 - [npm](https://www.npmjs.com/): es un administrador de paquetes para el lenguaje de programación [JavaScript](https://en.wikipedia.org/wiki/JavaScript) y el que utiliza por defecto el entorno de ejecución [Node.js](https://nodejs.org/).
 - [pip](https://pip.pypa.io/): es un administrador de paquetes del lenguaje de programación [Python](https://www.python.org/).
 
+## Conda
+[Conda](https://docs.conda.io/) es un sistema de administración de paquetes de código abierto que puede ejecutarse en Windows, macOS y Linux. Se distribuye conjutamente con las plataformas para ciencia de datos [Anaconda](https://www.anaconda.com/) y [Miniconda](https://docs.conda.io/en/latest/miniconda.html). Es frecuentemente utilizado para instalar paquetes de Python (como una alternativa a pip), pero también puede instalar paquetes de [C](https://en.wikipedia.org/wiki/C_(programming_language)), [C++](https://isocpp.org/), [R](https://www.r-project.org/) y otros lenguajes de programación o herramientas de software. A diferencia de pip, que instala archivos de código fuente, los paquetes que instala Conda son binarios (i.e. ya están compilados). Estos paquetes se mantienen en repositorios como [repo.anaconda.com](https://repo.anaconda.com/) y [conda-forge](https://anaconda.org/conda-forge).
 
-## Características generales de Conda
-[Conda](https://docs.conda.io/) es un sistema de administración de paquetes de código abierto que puede ejecutarse en Windows, macOS y Linux. 
+### Ambientes
+Una importante característica de Conda es que permite la creación de ambientes (*environments*) con diferentes versiones de Python, sus bibliotecas o cualquier otro tipo de paquetes. Si, por ejemplo, una aplicación requiere de una versión anterior del interpretador de Python (o de algunos de sus paquetes) Conda permite la creación de un ambiente con esas versiones específicas, sin necesidad de desinstalar las versiones más actualizadas, las cuales pueden funcionar separadamente en otros ambientes.
 
 ## Ejemplos de uso
+Ejecute los siguientes comandos desde la línea de comandos (prompt) de Anaconda:
 
 ```shell
 ```
