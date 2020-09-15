@@ -23,8 +23,24 @@ Un [sistema de administración de paquetes](https://en.wikipedia.org/wiki/Packag
 ### Ambientes
 Una importante característica de Conda es que permite la creación de ambientes (*environments*) con diferentes versiones de Python, sus bibliotecas o cualquier otro tipo de paquetes. Si, por ejemplo, una aplicación requiere de una versión anterior del interpretador de Python (o de algunos de sus paquetes) Conda permite la creación de un ambiente con esas versiones específicas, sin necesidad de desinstalar las versiones más actualizadas, las cuales pueden funcionar separadamente en otros ambientes.
 
-## Ejemplos de uso
-Ejecute los siguientes comandos desde la línea de comandos (prompt) de Anaconda:
+#### Ejemplos
+Ejecute los siguientes comandos desde la línea de comandos (*prompt*) de Anaconda.
 
+##### Ambiente para comandos de GDAL
 ```shell
+# Actualización de Conda
+conda update -n base -c defaults conda
+
+# Creación de un ambiente de nombre "gdal"
+conda create -n gdal
+
+# Activación del ambiente
+conda activate gdal
+
+# Instalación de paquetes
+# Binarios de GDAL
+conda install -c conda-forge gdal
+
+# Desactivación del ambiente
+$ conda deactivate
 ```
