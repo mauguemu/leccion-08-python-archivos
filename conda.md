@@ -55,8 +55,30 @@ $ conda deactivate
 # Activación del ambiente
 conda activate gdal
 
-# Descarga de la capa de áreas protegidas desde el servicio WFS de Sirefor en el SNIT
-ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 areas_conservacion.geojson WFS:"http://geos1pne.sirefor.go.cr/wfs?" "PNE:areas_conservacion"
+# Descarga de la capa de cantones de Costa Rica desde el servicio WFS del IGN en el SNIT
+ogr2ogr -f "GeoJSON" -s_srs EPSG:5367 -t_srs EPSG:4326 -makevalid cantones.geojson WFS:"http://geos.snitcr.go.cr/be/IGN_5/wfs" "IGN_5:limitecantonal_5k"
+
+# Información sobre la capa descargada
+ogrinfo -al -so cantones.geojson
+
+# Extracción de los cantones de la provincia de Heredia
+ogr2ogr -where "provincia = 'Heredia'" cantones-heredia.geojson cantones.geojson
+
+# Extracción de los cantones con área >= 2000 km2
+ogr2ogr -where "area >= 2000" cantones-grandes.geojson cantones.geojson
+
+# Extracción de los cantones con área >= 2000 km2 de la provincia de Limón
+ogr2ogr -where "area >= 2000 AND provincia = 'Limón'" cantones-grandes-limon.geojson cantones.geojson
+
+# EJERCICIO: Extracción de los cantones con área <= 20 km2 de la provincia de Heredia
+
+# Extracción de los campos de provincia, cantón y área de los cantones de la provincia de Alajuela
+ogr2ogr -select "provincia, canton, area" -where "provincia = 'Alajuela'" cantones-alajuela.geojson cantones.geojson
+
+# Información sobre la capa de cantones de Alajuela
+ogrinfo -al -so cantones-alajuela.geojson
+
+# EJERCICIO: Extracción de los campos de provincia, cantón y área de los cantones con área <= 20 km2 de la provincia de San José
 
 # Desactivación del ambiente
 $ conda deactivate
