@@ -62,4 +62,4 @@ ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 areas_conservacion.geojson WFS:"http://geo
 $ conda deactivate
 ```
 
-Puede encontrar la referecia de todos los comandos para manejo de ambientes de Conda en [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+Puede encontrar la referencia de todos los comandos para manejo de ambientes de Conda en [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
