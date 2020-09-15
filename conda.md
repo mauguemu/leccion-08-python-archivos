@@ -23,10 +23,15 @@ Un [sistema de administración de paquetes](https://en.wikipedia.org/wiki/Packag
 ### Ambientes
 Una importante característica de Conda es que permite la creación de ambientes (*environments*) con diferentes versiones de Python, sus bibliotecas o cualquier otro tipo de paquetes. Si, por ejemplo, una aplicación requiere de una versión anterior del interpretador de Python (o de algunos de sus paquetes) Conda permite la creación de un ambiente con esas versiones específicas, sin necesidad de desinstalar las versiones más actualizadas, las cuales pueden funcionar separadamente en otros ambientes.
 
-#### Ejemplos
+#### Ejemplos de creación y uso de ambientes
 Ejecute los siguientes comandos desde la línea de comandos (*prompt*) de Anaconda.
 
-##### Ambiente para comandos de GDAL
+##### Ambiente para utilitarios de línea de comandos de GDAL
+[Geospatial Data Abstraction Library (GDAL)](https://gdal.org/) es una biblioteca para leer y escribir datos geoespaciales en varios formatos [raster](https://gdal.org/drivers/raster/) y [vectoriales](https://gdal.org/drivers/vector/). A pesar de que GDAL está programada en C/C++, cuenta con una interfaz de programación de aplicaciones (API) para varios lenguajes de programación, incluyendo C, C++, Python y Java. Además, ofrece un conjunto de [utilitarios de línea de comandos](https://gdal.org/programs/) cuyas [distribuciones binarias](https://gdal.org/download.html#binaries) están disponibles para varios sistemas operativos, incluyendo Windows, macOS y Linux.
+
+A continuación, se crea un ambiente Conda en el que se instalan los utilitarios de línea de comandos de GDAL y se presentan varios ejemplos de su uso.
+
+**Creación del ambiente**
 ```shell
 # Actualización de Conda
 conda update -n base -c defaults conda
@@ -38,9 +43,23 @@ conda create -n gdal
 conda activate gdal
 
 # Instalación de paquetes
-# Binarios de GDAL en el canal conda-forge
+# Binarios de GDAL desde el canal conda-forge
 conda install -c conda-forge gdal
 
 # Desactivación del ambiente
 $ conda deactivate
 ```
+
+**Uso del ambiente**
+```shell
+# Activación del ambiente
+conda activate gdal
+
+# Descarga de la capa de áreas protegidas desde el servicio WFS de Sirefor en el SNIT
+ogr2ogr -t_srs EPSG:4326 -f "GeoJSON" areas_conservacion.geojson WFS:"http://geos1pne.sirefor.go.cr/wfs?" "PNE:areas_conservacion"
+
+# Desactivación del ambiente
+$ conda deactivate
+```
+
+Puede encontrar la referecia de todos los comandos para manejo de ambientes de Conda en [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
