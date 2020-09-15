@@ -38,7 +38,7 @@ conda create -n gdal
 conda activate gdal
 
 # Instalación de paquetes
-# Binarios de GDAL
+# Binarios de GDAL en el paquete conda-forge
 conda install -c conda-forge gdal
 
 # Desactivación del ambiente
