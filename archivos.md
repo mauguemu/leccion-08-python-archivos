@@ -59,6 +59,7 @@ A pesar de ser ampliamente usados, los archivos CSV no son un formato completame
 ### El módulo ```csv```
 El módulo [csv](https://docs.python.org/3/library/csv.html) facilita el manejo de archivos CSV en Python. Además de leer el archivo línea por línea, las separa en sus respectivas columnas, al representarlas mediante listas. El método [csv.reader()](https://docs.python.org/3/library/csv.html#csv.reader) retorna una lista con las líneas del archivo. Cada línea es, a su vez, una lista de hileras de texto que corresponden a las columnas del archivo.
 
+El siguiente bloque de código recorre un archivo CSV e imprime sus líneas y las columnas que las componen.
 ```python
 import csv
 
@@ -81,6 +82,7 @@ El método [csv.writer()](https://docs.python.org/3/library/csv.html#csv.writer)
 ```python
 import csv
 
+# Recorrido de las líneas de un archivo de texto y escritura en un nuevo archivo de las líneas que cumplen con una condición
 with open("maravillas_antiguas.csv") as archivo_entrada:
     lector = csv.reader(archivo_entrada)
 
