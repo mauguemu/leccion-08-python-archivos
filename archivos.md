@@ -39,67 +39,29 @@ Chichen Itza,México,-88.56865,20.6829
 La estatua de Cristo Redentor,Brasil,-43.210556,-22.951944
 ```
 
+A pesar de ser ampliamente usados, los archivos CSV no son un formato completamente estandarizado, por lo que pueden presentarse con algunas variantes:
+
+* La primera línea tiene usualmente los nombres de las columnas (llamados también encabezados), pero no siempre.
+* El caracter separador de las columnas no siempre es una coma. Puede ser también un tabulador, un punto y coma, otro carácter o incluso una combinación de caracteres.
+* Las columnas de texto pueden ir encerradas entre comillas para evitar el problema que se presenta si dentro del texto hay una coma u otro carácter separador.
+* El conjunto de caracteres puede sufrir alteraciones cuando se traslada entre herramientas de software o entre sistemas operativos, sobre en todo en caracteres especiales como los acentos.
 
 ### El módulo ```csv```
+El módulo [csv](https://docs.python.org/3/library/csv.html) facilita el manejo de archivos CSV en Python. Además de leer el archivo línea por línea, las separa en sus respectivas columnas, al representarlas mediante listas. El método [csv.reader()](https://docs.python.org/3/library/csv.html#csv.reader) retorna una lista con las líneas del archivo. Cada línea es, a su vez, una lista de hileras de texto que corresponden a las columnas del archivo.
 
+```python
+import csv
 
-#### Ejemplos de creación y uso de ambientes
-
-##### Ambiente para utilitarios de línea de comandos de GDAL
-
-A continuación, se crea un ambiente Conda en el que se instalan los utilitarios de línea de comandos de GDAL y se presentan varios ejemplos de su uso.
-
-**Creación del ambiente**
-```shell
-# Actualización de Conda
-conda update -n base -c defaults conda
-
-# Creación de un ambiente de nombre "gdal"
-conda create -n gdal
-
-# Activación del ambiente
-conda activate gdal
-
-# Instalación de paquetes
-# Binarios de GDAL desde el canal conda-forge
-conda install -c conda-forge gdal
-
-# Desactivación del ambiente
-$ conda deactivate
+# Recorrido e impresión de las líneas de un archivo de texto
+with open("maravillas_antiguas.csv") as archivo:
+    # Se crea el objeto reader
+    lineas = csv.reader(f)
+    
+    # Se recorren las líneas
+    for linea in lineas:
+        print('Línea: ', linea)
+        
+        # Se recorren las columnas de la línea
+        for columna in linea:
+            print ('Columna: ', columna)
 ```
-
-**Uso del ambiente**
-```shell
-# Activación del ambiente
-conda activate gdal
-
-# Descarga de la capa de cantones de Costa Rica desde el servicio WFS del IGN en el SNIT
-ogr2ogr -f "GeoJSON" -s_srs EPSG:5367 -t_srs EPSG:4326 -makevalid cantones.geojson WFS:"http://geos.snitcr.go.cr/be/IGN_5/wfs" "IGN_5:limitecantonal_5k"
-
-# Información sobre la capa descargada
-ogrinfo -al -so cantones.geojson
-
-# Extracción de los cantones de la provincia de Heredia
-ogr2ogr -where "provincia = 'Heredia'" cantones-heredia.geojson cantones.geojson
-
-# Extracción de los cantones con área >= 2000 km2
-ogr2ogr -where "area >= 2000" cantones-grandes.geojson cantones.geojson
-
-# Extracción de los cantones con área >= 2000 km2 de la provincia de Limón
-ogr2ogr -where "area >= 2000 AND provincia = 'Limón'" cantones-grandes-limon.geojson cantones.geojson
-
-# EJERCICIO: Extracción de los cantones con área <= 20 km2 de la provincia de Heredia
-
-# Extracción de los campos de provincia, cantón y área de los cantones de la provincia de Alajuela
-ogr2ogr -select "provincia, canton, area" -where "provincia = 'Alajuela'" cantones-alajuela.geojson cantones.geojson
-
-# Información sobre la capa de cantones de Alajuela
-ogrinfo -al -so cantones-alajuela.geojson
-
-# EJERCICIO: Extracción de los campos de provincia, cantón y área de los cantones con área <= 20 km2 de la provincia de San José
-
-# Desactivación del ambiente
-$ conda deactivate
-```
-
-Puede encontrar la referencia de todos los comandos para manejo de ambientes de Conda en [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
