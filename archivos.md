@@ -19,7 +19,7 @@ Figura 1: Operaciones para manejo de archivos en Python. Imagen de Charles Sever
 
 Estas operaciones se realizan a través de una variable llamada "manejador de archivo" (*file handle*).
 
-### La sentencia ```with```
+## La sentencia ```with```
 La sentencia [with](https://docs.python.org/3/reference/compound_stmts.html#with) se utiliza para ejecutar un bloque con métodos definidos por un [administrador de contexto (*context manager*)](https://docs.python.org/3/reference/datamodel.html#context-managers). Permite recorrer un archivo y cerrarlo automáticamente cuando se finaliza.
 
 ```python
@@ -29,7 +29,19 @@ with open("maravillas_antiguas.csv") as archivo:
         print(linea, end='')
 ```
 
-### Ambientes
+## Archivos CSV
+Los archivos CSV (*comma separated values*, valores separados por comas) son de los más empleados para intercambiar datos en formato tabular (i.e. en columnas). Pueden llamarse de otras formas, como por ejemplo “archivos de texto delimitado”. Son ampliamente utilizados para importar y exportar datos desde y hacia hojas electrónicas, bases de datos y otros sistemas de manejo de información. Consisten de líneas de texto en las cuales hay datos separados por comas. Cada dato corresponde a una columna. Por ejemplo, el siguiente es el contenido de un archivo CSV con cuatro columnas:
+
+```
+nombre,ubicacion,longitud,latitud
+Taj Mahal,India,78.042111,27.174799
+Chichen Itza,México,-88.56865,20.6829
+La estatua de Cristo Redentor,Brasil,-43.210556,-22.951944
+```
+
+
+### El módulo ```csv```
+
 
 #### Ejemplos de creación y uso de ambientes
 
