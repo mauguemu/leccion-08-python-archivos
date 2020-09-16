@@ -76,7 +76,7 @@ with open("maravillas_antiguas.csv") as archivo:
             print ('Columna: ', columna)
 ```
 
-El método [csv.writer()](https://docs.python.org/3/library/csv.html#csv.writer) se utiliza para escribir en un archivo CSV.
+El método [csv.writer()](https://docs.python.org/3/library/csv.html#csv.writer) se utiliza para escribir en un archivo CSV. El siguiente bloque de código abre un archivo CSV de entrada y recorre sus líneas. Si la columna de ubicación de una línea corresponde a Egipto o Irak, escribe la línea en un archivo de salida.
 
 ```python
 import csv
