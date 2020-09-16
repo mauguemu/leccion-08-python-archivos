@@ -17,7 +17,17 @@ Las operaciones que se usan para manejar archivos se ilustran en la figura 1.
 
 Figura 1: Operaciones para manejo de archivos en Python. Imagen de Charles Severance ([https://www.py4e.com/html3/07-files](https://www.py4e.com/html3/07-files))
 
-## La sentencia ```with```
+Estas operaciones se realizan a través de una variable llamada "manejador de archivo" (*file handle*).
+
+### La sentencia ```with```
+La sentencia [with](https://docs.python.org/3/reference/compound_stmts.html#with) se utiliza para ejecutar un bloque con métodos definidos por un administrador de contexto [administrador de contexto (*context manager*)](https://docs.python.org/3/reference/datamodel.html#context-managers). Permite recorrer un archivo y cerrarlo automáticamente cuando se finaliza.
+
+```shell
+# Recorrido e impresión de las líneas de un archivo de texto
+with open("maravillas_antiguas.csv") as archivo:
+    for linea in archivo:
+        print(linea)
+```
 
 ### Ambientes
 
