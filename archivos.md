@@ -26,7 +26,7 @@ La sentencia [with](https://docs.python.org/3/reference/compound_stmts.html#with
 # Recorrido e impresión de las líneas de un archivo de texto
 with open("maravillas_antiguas.csv") as archivo:
     for linea in archivo:
-        print(linea)
+        print(linea, end='')
 ```
 
 ### Ambientes
