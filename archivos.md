@@ -6,12 +6,12 @@
 ## Archivos
 Los archivos proporcionan una forma de almacenar datos de manera persistente (i.e. no volátil) en medios como discos duros, discos compactos, DVD, dispositivos de almacenamiento USB y otros. Contrario a lo que sucede a las estructuras que residen en la memoria del computador, como las variables, la información almacenada en archivos permanece después de que finaliza la ejecución de un programa o se apaga el computador. En Python, los archivos se manejan como objetos de tipo [file](https://docs.python.org/3/glossary.html#term-file-object), los cuales tienen un conjunto de [métodos](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files), entre las que están:
 
-* Abrir un archivo.  
-* Leer datos de un archivo.  
-* Escribir datos en un archivo.  
-* Cerrar un archivo.  
+* [open()](https://docs.python.org/3/library/functions.html#open): para abrir un archivo.  
+* [read()](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files): para leer datos de un archivo.  
+* [write()](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files): para escribir datos en un archivo.  
+* [close()](https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects): para cerrar un archivo.
 
-Las operaciones que se usan para manejar archivos se ilustran en la figura 1.
+Estas operaciones se ilustran en la figura 1.
 
 ![Figura 1: Operaciones para manejo de archivos en Python. Imagen de Charles Severance (https://www.py4e.com/html3/07-files)](img/operaciones-archivos-python.png)
 
@@ -19,14 +19,24 @@ Figura 1: Operaciones para manejo de archivos en Python. Imagen de Charles Sever
 
 Estas operaciones se realizan a través de una variable llamada "manejador de archivo" (*file handle*).
 
-## La sentencia ```with```
+## Uso de la sentencia ```with``` para leer y escribir en archivos
 La sentencia [with](https://docs.python.org/3/reference/compound_stmts.html#with) se utiliza para ejecutar un bloque con métodos definidos por un [administrador de contexto (*context manager*)](https://docs.python.org/3/reference/datamodel.html#context-managers). Permite recorrer un archivo y cerrarlo automáticamente cuando se finaliza.
 
+El siguiente bloque de código abre un archivo en modo de lectura (```"r"```) con la función open() y recorre e imprime cada una de sus líneas.
 ```python
 # Recorrido e impresión de las líneas de un archivo de texto
-with open("maravillas_antiguas.csv") as archivo:
+with open("maravillas_antiguas.csv", "r") as archivo:
     for linea in archivo:
         print(linea, end='')
+```
+
+Para escribir en un archivo, este debe abrirse en modo de escritura (```"w"```).
+```python
+# Escritura en un archivo
+with open("archivo_nuevo.csv", "w") as archivo:
+    f.write('Línea 1\n')
+    f.write('Línea 2\n')
+    f.write('Línea 3\n')
 ```
 
 ## Archivos CSV
