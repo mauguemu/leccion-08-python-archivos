@@ -65,13 +65,36 @@ import csv
 # Recorrido e impresión de las líneas de un archivo de texto
 with open("maravillas_antiguas.csv") as archivo:
     # Se crea el objeto reader
-    lineas = csv.reader(f)
+    lector = csv.reader(archivo)
     
     # Se recorren las líneas
-    for linea in lineas:
+    for linea in lector:
         print('Línea: ', linea)
         
         # Se recorren las columnas de la línea
         for columna in linea:
             print ('Columna: ', columna)
+```
+
+El método [csv.writer()](https://docs.python.org/3/library/csv.html#csv.writer) se utiliza para escribir en un archivo CSV.
+
+```python
+import csv
+
+with open("maravillas_antiguas.csv") as archivo_entrada:
+    lector = csv.reader(archivo_entrada)
+
+    with open("maravillas_antiguas_irak_egipto.csv", "w") as archivo_salida:
+        escritor = csv.writer(archivo_salida, delimiter=',')
+        i = 0
+        for linea in lector:
+            if i == 0:
+                # Línea del encabezado
+                escritor.writerow(linea)
+                print(linea)
+            elif linea[1] == "Irak" or linea[1] == "Egipto":
+                 # La ubicación es Egipto o Irak
+                escritor.writerow(linea)
+                print(linea)
+            i = i + 1
 ```
