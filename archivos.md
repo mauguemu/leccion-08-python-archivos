@@ -17,6 +17,7 @@ Las operaciones que se usan para manejar archivos se ilustran en la figura 1.
 
 ![Figura 1: Operaciones para manejo de archivos en Python. Imagen de Charles Severance (https://www.py4e.com/html3/07-files)](img/operaciones-archivos-python.png)
 
+Figura 1: Operaciones para manejo de archivos en Python. Imagen de Melinda Higgins ([https://www.py4e.com/html3/07-files](https://www.py4e.com/html3/07-files))
 
 ## Conda
 
