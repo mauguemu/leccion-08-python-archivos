@@ -34,9 +34,9 @@ Para escribir en un archivo, este debe abrirse en modo de escritura (```"w"```).
 ```python
 # Escritura en un archivo
 with open("archivo_nuevo.csv", "w") as archivo:
-    f.write('Línea 1\n')
-    f.write('Línea 2\n')
-    f.write('Línea 3\n')
+    archivo.write('Línea 1\n')
+    archivo.write('Línea 2\n')
+    archivo.write('Línea 3\n')
 ```
 
 ## Archivos CSV
